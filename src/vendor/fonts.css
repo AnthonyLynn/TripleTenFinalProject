@@ -1,0 +1,69 @@
+/* font-family: Roboto, Arial, "Helvetica Neue", Lato; */
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Roboto/roboto-400-regular.woff) format("woff"),
+    url(../fonts/Roboto/roboto-400-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/Roboto/roboto-500.woff) format("woff"),
+    url(../fonts/Roboto/roboto-500.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/Roboto/roboto-700.woff) format("woff"),
+    url(../fonts/Roboto/roboto-700.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  src: url(../fonts/Roboto/roboto-900.woff) format("woff"),
+    url(../fonts/Roboto/roboto-900.woff2) format("woff2");
+}
+
+/* font-family: "Roboto Slab", "Times New Roman", sans-serif; */
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/RobotoSlab/roboto-slab-400-regular.woff) format("woff"),
+    url(../fonts/RobotoSlab/roboto-slab-400-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/RobotoSlab/roboto-slab-700.woff) format("woff"),
+    url(../fonts/RobotoSlab/roboto-slab-700.woff2) format("woff2");
+}
+
+/* font-family: Inter, Helvetica, Arial; */
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Inter/inter-400-regular.woff) format("woff"),
+    url(../fonts/Inter/inter-400-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/Inter/inter-500.woff) format("woff"),
+    url(../fonts/Inter/inter-500.woff2) format("woff2");
+}
