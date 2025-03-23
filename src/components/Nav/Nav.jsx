@@ -1,6 +1,6 @@
-import "./NavBar.css";
+import "./Nav.css";
 
-function NavBar() {
+function Nav() {
   return (
     <nav className="nav">
       <div className="nav__top">
@@ -22,4 +22,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Nav;
