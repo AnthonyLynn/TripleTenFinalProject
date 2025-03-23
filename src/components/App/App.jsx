@@ -1,6 +1,7 @@
 import Nav from "../Nav/Nav";
 import Search from "../Search/Search";
 import AboutAuthor from "../AboutAuthor/AboutAuthor";
+import Footer from "../Footer/Footer";
 
 import "./App.css";
 
@@ -10,6 +11,7 @@ function App() {
       <Nav />
       <Search />
       <AboutAuthor />
+      <Footer />
     </div>
   );
 }
