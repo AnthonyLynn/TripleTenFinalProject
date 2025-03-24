@@ -1,0 +1,42 @@
+.results {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 80px 104px;
+  box-sizing: border-box;
+
+  background: #f5f6f7;
+}
+
+.results__header {
+  font-family: "Roboto Slab", "Times New Roman", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  color: #1a1b22;
+
+  margin: 0 0 64px;
+}
+
+.results__card-container {
+  margin: 0 0 64px;
+}
+
+.results__more-btn {
+  font-family: Roboto, Arial, "Helvetica Neue", Lato;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.333;
+  color: #1a1b22;
+
+  width: 288px;
+  padding: 20px 0;
+  align-self: center;
+
+  background: #e8e8e8;
+  border: none;
+  border-radius: 999em;
+
+  cursor: pointer;
+}

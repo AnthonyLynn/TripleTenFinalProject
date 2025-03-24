@@ -2,7 +2,7 @@ import "./Search.css";
 
 function Search() {
   return (
-    <section className="search">
+    <header className="search">
       <div className="search__tint"></div>
       <h1 className="search__header">What's going on in the world?</h1>
       <p className="search__instructions">
@@ -17,7 +17,7 @@ function Search() {
         />
         <button className="search__btn">Search</button>
       </div>
-    </section>
+    </header>
   );
 }
 
