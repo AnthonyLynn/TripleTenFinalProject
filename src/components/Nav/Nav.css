@@ -61,6 +61,7 @@
   line-height: 1.333;
   color: #ffffff;
 
+  width: max-content;
   height: 100%;
   box-shadow: 0 -3px #ffffff inset;
 
@@ -88,6 +89,8 @@
   font-size: 18px;
   line-height: 1.333;
   color: #ffffff;
+
+  width: max-content;
 
   margin: 0 0 0 30px;
   padding: 12px 32px;
@@ -126,7 +129,7 @@
   }
 }
 
-@media screen and (width <= 320px) {
+@media screen and (width <= 425px) {
   .nav {
     height: 56px;
 

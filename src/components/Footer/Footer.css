@@ -22,6 +22,11 @@
   padding: 0;
 }
 
+.footer__link-container {
+  display: flex;
+  gap: 40px;
+}
+
 .footer__links {
   display: flex;
   gap: 40px;
@@ -35,6 +40,59 @@
   line-height: 1.333;
   color: #1a1b22;
 
+  width: min-content;
+
   margin: 0;
   padding: 0;
+}
+
+.footer__link-icons {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__link-icon {
+  background: url("../../images/GitHub_Icon.svg");
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (width <= 768px) {
+  .footer {
+    height: 64px;
+    padding: 0 40px;
+  }
+}
+
+@media screen and (width <= 620px) {
+  .footer {
+    height: auto;
+
+    justify-content: center;
+    flex-flow: wrap-reverse;
+    gap: 38px;
+  }
+
+  .footer__copyright {
+    width: 100%;
+  }
+
+  .footer__link-container {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 24px;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (width <= 425px) {
+  .footer {
+    padding: 20px 16px 22px;
+  }
 }
