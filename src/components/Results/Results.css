@@ -34,9 +34,49 @@
   padding: 20px 0;
   align-self: center;
 
-  background: #e8e8e8;
+  background: #ffffff;
   border: none;
   border-radius: 999em;
 
   cursor: pointer;
+}
+
+@media screen and (width <= 768px) {
+  .results {
+    padding: 40px;
+  }
+
+  .results__header {
+    font-size: 30px;
+    line-height: 1.133;
+
+    margin: 0 0 32px;
+  }
+
+  .results__card-container {
+    margin: 0 0 32px;
+  }
+
+  .results__more-btn {
+    width: 240px;
+    padding: 16px 0;
+  }
+}
+
+@media screen and (width <= 425px) {
+  .results {
+    padding: 32px 16px 24px;
+  }
+
+  .results__header {
+    margin: 0 0 58px;
+  }
+
+  .results__card-container {
+    margin: 0 0 16px;
+  }
+
+  .results__more-btn {
+    width: 100%;
+  }
 }
