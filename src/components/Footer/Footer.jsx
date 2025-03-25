@@ -1,9 +1,12 @@
 import "./Footer.css";
 
 function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="footer">
-      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
+      <p className="footer__copyright">
+        © {year} Supersite, Powered by News API
+      </p>
       <div className="footer__link-container">
         <div className="footer__links">
           <a href="" className="footer__link">

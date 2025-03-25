@@ -5,18 +5,23 @@ import Saved from "../Saved/Saved";
 import AboutAuthor from "../AboutAuthor/AboutAuthor";
 import Footer from "../Footer/Footer";
 
+import LoginModal from "../LoginModal/LoginModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
+
 import "./App.css";
 
 function App() {
   return (
-    <div className="page">
+    <main className="page">
       <Nav />
       <Search />
       <Saved />
       <Results />
       <AboutAuthor />
       <Footer />
-    </div>
+
+      <SignUpModal />
+    </main>
   );
 }
 
