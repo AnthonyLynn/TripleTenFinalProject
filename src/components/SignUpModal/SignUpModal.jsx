@@ -57,7 +57,7 @@ function SignUpModal({ onClose, children }) {
           Sign up
         </button>
         <p className="modal__subtext">
-          or
+          or{" "}
           <a href="" className="modal__link">
             Sign in
           </a>

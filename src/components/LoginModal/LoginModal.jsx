@@ -43,7 +43,7 @@ function LoginModal({ onClose, children }) {
           Save changes
         </button>
         <p className="modal__subtext">
-          or
+          or{" "}
           <a href="" className="modal__link">
             Sign up
           </a>

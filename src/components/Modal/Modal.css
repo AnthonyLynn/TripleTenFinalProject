@@ -163,3 +163,7 @@
 
   margin: 0;
 }
+
+.modal__confrimation {
+  padding: 43px 36px 52px;
+}

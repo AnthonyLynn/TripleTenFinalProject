@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 
 import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
+import ConfrimationModal from "../ConfrimationModal/ConfrimationModal";
 
 import "./App.css";
 
@@ -20,7 +21,7 @@ function App() {
       <AboutAuthor />
       <Footer />
 
-      <SignUpModal />
+      <ConfrimationModal />
     </main>
   );
 }
