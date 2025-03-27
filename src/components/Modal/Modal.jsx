@@ -1,6 +1,6 @@
 import "./Modal.css";
 
-function Modal({ onClose, children }) {
+function Modal({ name, activeModal, onClose, children }) {
   const onOverlay = (evt) => {
     if (evt.target === evt.currentTarget) {
       onClose();
@@ -8,7 +8,10 @@ function Modal({ onClose, children }) {
   };
 
   return (
-    <div className={"modal modal_opened"} onMouseDown={onOverlay}>
+    <div
+      className={`modal ${activeModal === name && "modal_opened"}`}
+      onMouseDown={onOverlay}
+    >
       <div className={"modal__content"}>
         <button
           type="button"

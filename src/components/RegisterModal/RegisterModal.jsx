@@ -1,8 +1,8 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 import { useForm } from "../../hooks/useForm.js";
 
-function LoginModal({ name, activeModal, onClose }) {
+function RegisterModal({ name, activeModal, onClose, children }) {
   const { values, handleChange, setValues } = useForm({});
 
   const onSubmit = (evt) => {
@@ -12,19 +12,19 @@ function LoginModal({ name, activeModal, onClose }) {
   return (
     <ModalWithForm
       name={name}
-      activeModal={activeModal}
       onClose={onClose}
+      activeModal={activeModal}
       onSubmit={onSubmit}
     >
-      <h2 className="modal__header">Sign in</h2>
+      <h2 className="modal__header">Sign up</h2>
       <fieldset className="modal-form__fieldset">
-        <label htmlFor="user-email" className="modal-form__label">
+        <label htmlFor="signin-email" className="modal-form__label">
           Email
           <input
             type="email"
             className="modal-form__text-input"
-            id="user-email"
-            name="user-email"
+            id="signin-email"
+            name="signin-email"
             placeholder="Enter email"
             onChange={handleChange}
             value={values.email || ""}
@@ -32,14 +32,28 @@ function LoginModal({ name, activeModal, onClose }) {
           />
           <span className="modal-form__error"></span>
         </label>
-        <label htmlFor="user-password" className="modal-form__label">
+        <label htmlFor="signin-password" className="modal-form__label">
           Password
           <input
             type="text"
             className="modal-form__text-input"
-            id="user-password"
-            name="user-password"
+            id="signin-password"
+            name="signin-password"
             placeholder="Enter password"
+            onChange={handleChange}
+            value={values.password || ""}
+            required
+          />
+          <span className="modal-form__error"></span>
+        </label>
+        <label htmlFor="signin-username" className="modal-form__label">
+          Username
+          <input
+            type="text"
+            className="modal-form__text-input"
+            id="signin-username"
+            name="signin-username"
+            placeholder="Enter username"
             onChange={handleChange}
             value={values.password || ""}
             required
@@ -48,16 +62,16 @@ function LoginModal({ name, activeModal, onClose }) {
         </label>
       </fieldset>
       <button type="submit" className="modal-form__btn">
-        Save changes
+        Sign up
       </button>
       <p className="modal__subtext">
         or{" "}
         <a href="" className="modal__link">
-          Sign up
+          Sign in
         </a>
       </p>
     </ModalWithForm>
   );
 }
 
-export default LoginModal;
+export default RegisterModal;

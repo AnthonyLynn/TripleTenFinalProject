@@ -1,8 +1,8 @@
 import Modal from "../Modal/Modal";
 
-function SignUpModal({ onClose }) {
+function SignUpModal({ name, activeModal, onClose }) {
   return (
-    <Modal onClose={onClose}>
+    <Modal name={name} activeModal={activeModal} onClose={onClose}>
       <div className="modal__confrimation">
         <h2 className="modal__header">Registration successfully completed!</h2>
         <a href="" className="modal__link">
