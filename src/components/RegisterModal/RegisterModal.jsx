@@ -2,7 +2,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 import { useForm } from "../../hooks/useForm.js";
 
-function RegisterModal({ name, activeModal, onClose, children }) {
+function RegisterModal({
+  name,
+  activeModal,
+  onClose,
+  openLoginModal,
+  children,
+}) {
   const { values, handleChange, setValues } = useForm({});
 
   const onSubmit = (evt) => {
@@ -66,9 +72,9 @@ function RegisterModal({ name, activeModal, onClose, children }) {
       </button>
       <p className="modal__subtext">
         or{" "}
-        <a href="" className="modal__link">
+        <button className="modal__link" onClick={openLoginModal}>
           Sign in
-        </a>
+        </button>
       </p>
     </ModalWithForm>
   );

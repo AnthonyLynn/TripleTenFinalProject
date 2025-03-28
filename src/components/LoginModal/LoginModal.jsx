@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 import { useForm } from "../../hooks/useForm.js";
 
-function LoginModal({ name, activeModal, onClose }) {
+function LoginModal({ name, activeModal, onClose, openRegisterModal }) {
   const { values, handleChange, setValues } = useForm({});
 
   const onSubmit = (evt) => {
@@ -48,13 +48,13 @@ function LoginModal({ name, activeModal, onClose }) {
         </label>
       </fieldset>
       <button type="submit" className="modal-form__btn">
-        Save changes
+        Sign in
       </button>
       <p className="modal__subtext">
         or{" "}
-        <a href="" className="modal__link">
+        <button className="modal__link" onClick={openRegisterModal}>
           Sign up
-        </a>
+        </button>
       </p>
     </ModalWithForm>
   );

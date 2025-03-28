@@ -1,6 +1,6 @@
-.saved__info {
+.saved {
   background: #ffffff;
-  padding: 40px 104px 56px;
+  padding: 120px 104px 56px;
 }
 
 .saved__nametag {
@@ -44,8 +44,8 @@
 }
 
 @media screen and (width <= 768px) {
-  .saved__info {
-    padding: 24px 40px 32px;
+  .saved {
+    padding: 90px 40px 32px;
   }
 
   .saved__nametag {
@@ -60,8 +60,8 @@
 }
 
 @media screen and (width <= 425px) {
-  .saved__info {
-    padding: 8px 16px 32px;
+  .saved {
+    padding: 64px 16px 32px;
   }
 
   .saved__nametag {

@@ -1,22 +1,24 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import Header from "../Header/Header";
-import Search from "../Search/Search";
-import Results from "../Results/Results";
-import Saved from "../Saved/Saved";
-import AboutAuthor from "../AboutAuthor/AboutAuthor";
+import Navigation from "../Navigation/Navigation";
+import Main from "../Main/Main";
+import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfrimationModal from "../ConfrimationModal/ConfrimationModal";
 
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
 import "./App.css";
 
 function App() {
   const navigate = useNavigate();
+
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function getOpenModalFunction(modal) {
     return () => {
@@ -46,25 +48,36 @@ function App() {
 
   return (
     <div className="page">
-      <Header />
-      <Search />
-      <Saved />
-      <Results />
-      <AboutAuthor />
+      <Navigation isLoggedIn={isLoggedIn} openLoginModal={openLoginModal} />
+
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route
+          path="/saved-news"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+
       <Footer />
 
       <LoginModal
-        name={"login"}
+        name="login"
         activeModal={activeModal}
         onClose={closeModal}
+        openRegisterModal={openRegisterModal}
       />
       <RegisterModal
-        name={"register"}
+        name="register"
         activeModal={activeModal}
         onClose={closeModal}
+        openLoginModal={openLoginModal}
       />
       <ConfrimationModal
-        name={"confrimation"}
+        name="confrimation"
         activeModal={activeModal}
         onClose={closeModal}
       />

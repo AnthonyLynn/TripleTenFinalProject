@@ -1,13 +1,13 @@
 import profileImage from "../../images/Profile_Placeholder.jpg";
-import "./AboutAuthor.css";
+import "./About.css";
 
-function AboutAuthor() {
+function About() {
   return (
-    <section className="about-author">
-      <img src={profileImage} alt="profile" className="about-author__image" />
+    <section className="about">
+      <img src={profileImage} alt="profile" className="about__image" />
       <div>
-        <h2 className="about-author__header">About the author</h2>
-        <p className="about-author__description">
+        <h2 className="about__header">About the author</h2>
+        <p className="about__description">
           This block describes the project author. Here you should indicate your
           name, what you do, and which development technologies you know. You
           can also talk about your experience with TripleTen, what you learned
@@ -18,4 +18,4 @@ function AboutAuthor() {
   );
 }
 
-export default AboutAuthor;
+export default About;

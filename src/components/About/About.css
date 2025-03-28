@@ -1,4 +1,4 @@
-.about-author {
+.about {
   background: #ffffff;
 
   padding: 80px 104px;
@@ -8,7 +8,7 @@
   gap: 56px;
 }
 
-.about-author__image {
+.about__image {
   width: 464px;
   height: auto;
   aspect-ratio: 1;
@@ -16,7 +16,7 @@
   border-radius: 999em;
 }
 
-.about-author__header {
+.about__header {
   font-family: "Roboto Slab", "Times New Roman", sans-serif;
   font-weight: 400;
   font-size: 40px;
@@ -27,7 +27,7 @@
   padding: 0;
 }
 
-.about-author__description {
+.about__description {
   font-family: Roboto, Arial, "Helvetica Neue", Lato;
   font-weight: 400;
   font-size: 18px;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (width <= 1024px) {
-  .about-author__image {
+  .about__image {
     width: 232px;
     height: 232px;
     margin: 21px 0 0;
@@ -47,31 +47,31 @@
 }
 
 @media screen and (width <= 768px) {
-  .about-author {
+  .about {
     padding: 40px 40px 61px;
     gap: 32px;
   }
 
-  .about-author__header {
+  .about__header {
     font-size: 30px;
     line-height: 1.333;
     margin: 0 0 16px;
   }
 
-  .about-author__description {
+  .about__description {
     font-size: 18px;
     line-height: 1.333;
   }
 }
 
 @media screen and (width <= 640px) {
-  .about-author {
+  .about {
     flex-direction: column;
     gap: 24px;
     align-items: center;
   }
 
-  .about-author__image {
+  .about__image {
     max-width: 288px;
     width: 100%;
     height: auto;
@@ -80,7 +80,7 @@
 }
 
 @media screen and (width <= 425px) {
-  .about-author {
+  .about {
     padding: 32px 16px 128px;
   }
 }
