@@ -7,7 +7,7 @@ function Main() {
   return (
     <main className="main">
       <Header />
-      <Preloader />
+      <Results />
       <About />
     </main>
   );
