@@ -1,6 +1,10 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import { getToken, setToken, removeToken } from "../../utils/token.js";
+
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+
 import Navigation from "../Navigation/Navigation";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
@@ -16,6 +20,12 @@ import "./App.css";
 
 function App() {
   const navigate = useNavigate();
+
+  const [currentUser, setCurrentUser] = useState({
+    username: "",
+    email: "",
+    _id: "",
+  });
 
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,42 +56,59 @@ function App() {
     };
   }, [activeModal]);
 
+  function onLogOut() {
+    removeToken();
+    setIsLoggedIn(false);
+    setCurrentUser({
+      username: "",
+      email: "",
+      _id: "",
+    });
+    navigate("/");
+  }
+
   return (
-    <div className="page">
-      <Navigation isLoggedIn={isLoggedIn} openLoginModal={openLoginModal} />
-
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route
-          path="/saved-news"
-          element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <SavedNews />
-            </ProtectedRoute>
-          }
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <div className="page">
+        <Navigation
+          isLoggedIn={isLoggedIn}
+          openLoginModal={openLoginModal}
+          onLogOut={onLogOut}
         />
-      </Routes>
 
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route
+            path="/saved-news"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <SavedNews />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
 
-      <LoginModal
-        name="login"
-        activeModal={activeModal}
-        onClose={closeModal}
-        openRegisterModal={openRegisterModal}
-      />
-      <RegisterModal
-        name="register"
-        activeModal={activeModal}
-        onClose={closeModal}
-        openLoginModal={openLoginModal}
-      />
-      <ConfrimationModal
-        name="confrimation"
-        activeModal={activeModal}
-        onClose={closeModal}
-      />
-    </div>
+        <Footer />
+
+        <LoginModal
+          name="login"
+          activeModal={activeModal}
+          onClose={closeModal}
+          openRegisterModal={openRegisterModal}
+        />
+        <RegisterModal
+          name="register"
+          activeModal={activeModal}
+          onClose={closeModal}
+          openLoginModal={openLoginModal}
+        />
+        <ConfrimationModal
+          name="confrimation"
+          activeModal={activeModal}
+          onClose={closeModal}
+        />
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

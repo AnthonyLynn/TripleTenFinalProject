@@ -1,7 +1,12 @@
-import "./Navigation.css";
 import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-function Navigation({ isLoggedIn, openLoginModal }) {
+import "./Navigation.css";
+
+function Navigation({ isLoggedIn, openLoginModal, onLogOut }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <nav className="navigation">
       <div className="navigation__top">
@@ -26,9 +31,9 @@ function Navigation({ isLoggedIn, openLoginModal }) {
         <button
           type="button"
           className="navigation__login-btn"
-          onClick={openLoginModal}
+          onClick={isLoggedIn ? onLogOut : openLoginModal}
         >
-          Sign in
+          {isLoggedIn ? currentUser.name : "Sign in"}
         </button>
       </div>
       <Outlet />
