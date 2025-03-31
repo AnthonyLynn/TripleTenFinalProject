@@ -2,19 +2,19 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { getToken, setToken, removeToken } from "../../utils/token.js";
-
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 import Navigation from "../Navigation/Navigation";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
-
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfrimationModal from "../ConfrimationModal/ConfrimationModal";
-
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
+import { APIkey } from "../../utils/constants.js";
+import { getNewsSources } from "../../utils/newsApi.js";
 
 import "./App.css";
 
@@ -55,6 +55,14 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]);
+
+  useEffect(() => {
+    getNewsSources({ apiKey: APIkey, searchTerm: "nature" })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
+  }, []);
 
   function onLogOut() {
     removeToken();

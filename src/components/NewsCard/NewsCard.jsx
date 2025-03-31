@@ -1,15 +1,35 @@
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import cardImage from "../../images/TemplateCardImage.jpg";
 
 import "./NewsCard.css";
 
-function NewsCard() {
+function NewsCard({ newsItem, onBookMarkClick, onTrashClick, isLoggedIn }) {
+  //const { currentUser } = useContext(CurrentUserContext);
+  //const isSaved = newsItem.saves.some((id) => id === currentUser._id);
+
   return (
     <li className="news-card">
       <div className="news-card__topbar">
         <p className="news-card__keyword">Nature</p>
-        <p className="news-card__popup">Sign in to save articles</p>
-        <button className="news-card__btn news-card__btn_type_bookmark" />
-        <button className="news-card__btn news-card__btn_type_trashcan" />
+        <div className="news-card__btn-container">
+          <p className="news-card__tooltip">Sign in to save articles</p>
+          {onBookMarkClick && (
+            <button
+              className={`news-card__btn 
+                ${
+                  isSaved
+                    ? "news-card__btn_type_bookmark-highlighted"
+                    : "news-card__btn_type_bookmark"
+                }
+              `}
+              onClick={isLoggedIn && onBookMarkClick}
+            />
+          )}
+          {onTrashClick && (
+            <button className="news-card__btn news-card__btn_type_trashcan" />
+          )}
+        </div>
       </div>
       <img src={cardImage} alt="" className="news-card__image" />
       <div className="news-card__info">
