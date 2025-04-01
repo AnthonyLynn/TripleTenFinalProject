@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { getToken, setToken, removeToken } from "../../utils/token.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-import Navigation from "../Navigation/Navigation";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
@@ -23,14 +22,14 @@ function App() {
   const navigate = useNavigate();
 
   const [currentUser, setCurrentUser] = useState({
-    username: "",
-    email: "",
-    _id: "",
+    username: "Fox",
+    email: "foxsiler@fox.com",
+    _id: "11",
   });
 
   const [newsSources, setNewsSources] = useState([]);
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   function getOpenModalFunction(modal) {
     return () => {
@@ -51,12 +50,30 @@ function App() {
       .catch(console.error);
   }
 
+  function onLogin(data) {
+    const loginRequest = () => {
+      return signin(data).then((data) => {
+        if (data.token) {
+          setToken(data.token);
+          setCurrentUser(data.user);
+          setIsLoggedIn(true);
+          closeModal();
+        } else {
+          console.error("No token was found");
+        }
+      });
+    };
+
+    handleSubmit(loginRequest);
+  }
+
   function onLogOut() {
     removeToken();
     setIsLoggedIn(false);
     setCurrentUser({
       username: "",
       email: "",
+      savedArticles: [],
       _id: "",
     });
     navigate("/");
@@ -97,19 +114,28 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ currentUser }}>
       <div className="page">
-        <Navigation
-          isLoggedIn={isLoggedIn}
-          openLoginModal={openLoginModal}
-          onLogOut={onLogOut}
-        />
-
         <Routes>
-          <Route path="/" element={<Main newsSources={newsSources} />} />
+          <Route
+            path="/"
+            element={
+              <Main
+                newsSources={newsSources}
+                isLoggedIn={isLoggedIn}
+                openLoginModal={openLoginModal}
+                onLogOut={onLogOut}
+              />
+            }
+          />
           <Route
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavedNews newsSources={newsSources} />
+                <SavedNews
+                  newsSources={newsSources}
+                  isLoggedIn={isLoggedIn}
+                  openLoginModal={openLoginModal}
+                  onLogOut={onLogOut}
+                />
               </ProtectedRoute>
             }
           />
