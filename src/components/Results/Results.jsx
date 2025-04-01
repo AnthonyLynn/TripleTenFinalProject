@@ -1,16 +1,12 @@
-import NewsCard from "../NewsCard/NewsCard";
+import NewsSection from "../NewsSection/NewsSection";
 
 import "./Results.css";
 
-function Results() {
+function Results({ newsSources }) {
   return (
     <section className="results">
       <h2 className="results__header">Search results</h2>
-      <ul className="results__card-container">
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-      </ul>
+      <NewsSection newsSources={newsSources} />
       <button className="results__more-btn">Show more</button>
     </section>
   );

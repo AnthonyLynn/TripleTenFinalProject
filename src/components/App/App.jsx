@@ -13,6 +13,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfrimationModal from "../ConfrimationModal/ConfrimationModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
+import { getUserInfo } from "../../utils/auth.js";
 import { APIkey } from "../../utils/constants.js";
 import { getNewsSources } from "../../utils/newsApi.js";
 
@@ -27,6 +28,7 @@ function App() {
     _id: "",
   });
 
+  const [newsSources, setNewsSources] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -40,6 +42,25 @@ function App() {
   const openRegisterModal = getOpenModalFunction("register");
   const openLoginModal = getOpenModalFunction("login");
   const closeModal = getOpenModalFunction("");
+
+  function onSearch({ searchTerm }) {
+    getNewsSources({ apiKey: APIkey, searchTerm: searchTerm })
+      .then((data) => {
+        setNewsSources(data);
+      })
+      .catch(console.error);
+  }
+
+  function onLogOut() {
+    removeToken();
+    setIsLoggedIn(false);
+    setCurrentUser({
+      username: "",
+      email: "",
+      _id: "",
+    });
+    navigate("/");
+  }
 
   // Close modals on Esc key
   useEffect(() => {
@@ -56,24 +77,22 @@ function App() {
     };
   }, [activeModal]);
 
+  // Check if there's a token
+  /*
   useEffect(() => {
-    getNewsSources({ apiKey: APIkey, searchTerm: "nature" })
-      .then((data) => {
-        console.log(data);
+    const token = getToken();
+
+    if (!token) {
+      return;
+    }
+
+    getUserInfo(token)
+      .then(({ data }) => {
+        setIsLoggedIn(true);
+        setCurrentUser(data);
       })
       .catch(console.error);
-  }, []);
-
-  function onLogOut() {
-    removeToken();
-    setIsLoggedIn(false);
-    setCurrentUser({
-      username: "",
-      email: "",
-      _id: "",
-    });
-    navigate("/");
-  }
+  }, []);*/
 
   return (
     <CurrentUserContext.Provider value={{ currentUser }}>
@@ -85,12 +104,12 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main newsSources={newsSources} />} />
           <Route
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavedNews />
+                <SavedNews newsSources={newsSources} />
               </ProtectedRoute>
             }
           />

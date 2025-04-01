@@ -3,11 +3,11 @@ import Results from "../Results/Results";
 import Preloader from "../Preloader/Preloader";
 import About from "../About/About";
 
-function Main() {
+function Main({ newsSources }) {
   return (
     <main className="main">
       <Header />
-      <Results />
+      {newsSources.length > 0 && <Results newsSources={newsSources} />}
       <About />
     </main>
   );

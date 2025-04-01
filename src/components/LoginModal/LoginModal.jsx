@@ -1,13 +1,18 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
+import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm.js";
 
 function LoginModal({ name, activeModal, onClose, openRegisterModal }) {
-  const { values, handleChange, setValues } = useForm({});
+  const { values, errors, isValid, handleChange, resetForm } = useForm();
 
   const onSubmit = (evt) => {
     evt.preventDefault();
   };
+
+  useEffect(() => {
+    resetForm();
+  }, [activeModal]);
 
   return (
     <ModalWithForm
@@ -24,13 +29,15 @@ function LoginModal({ name, activeModal, onClose, openRegisterModal }) {
             type="email"
             className="modal-form__text-input"
             id="user-email"
-            name="user-email"
+            name="userEmail"
             placeholder="Enter email"
             onChange={handleChange}
-            value={values.email || ""}
+            value={values.userEmail || ""}
             required
           />
-          <span className="modal-form__error"></span>
+          <span className="modal-form__error" id="user-email-error">
+            {errors.userEmail}
+          </span>
         </label>
         <label htmlFor="user-password" className="modal-form__label">
           Password
@@ -38,16 +45,21 @@ function LoginModal({ name, activeModal, onClose, openRegisterModal }) {
             type="text"
             className="modal-form__text-input"
             id="user-password"
-            name="user-password"
+            name="userPassword"
             placeholder="Enter password"
             onChange={handleChange}
-            value={values.password || ""}
+            value={values.userPassword || ""}
             required
           />
-          <span className="modal-form__error"></span>
+          <span className="modal-form__error" id="user-password-error">
+            {errors.userPassword}
+          </span>
         </label>
       </fieldset>
-      <button type="submit" className="modal-form__btn">
+      <button
+        type="submit"
+        className={`modal-form__btn ${isValid && "modal-form__btn_active"}`}
+      >
         Sign in
       </button>
       <p className="modal__subtext">

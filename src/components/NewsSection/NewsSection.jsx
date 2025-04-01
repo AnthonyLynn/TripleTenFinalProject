@@ -1,6 +1,6 @@
 import "./NewsSection.css";
 
-function NewsSection({ shouldFilterSave, hasBookMark, hasTrash }) {
+function NewsSection({ newsSources, hasBookMark, hasTrash }) {
   return <ul className="news-section"></ul>;
 }
 

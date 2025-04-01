@@ -1,5 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
+import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm.js";
 
 function RegisterModal({
@@ -9,11 +10,15 @@ function RegisterModal({
   openLoginModal,
   children,
 }) {
-  const { values, handleChange, setValues } = useForm({});
+  const { values, errors, isValid, handleChange, resetForm } = useForm({});
 
   const onSubmit = (evt) => {
     evt.preventDefault();
   };
+
+  useEffect(() => {
+    resetForm();
+  }, [activeModal]);
 
   return (
     <ModalWithForm
@@ -24,50 +29,59 @@ function RegisterModal({
     >
       <h2 className="modal__header">Sign up</h2>
       <fieldset className="modal-form__fieldset">
-        <label htmlFor="signin-email" className="modal-form__label">
+        <label htmlFor="signup-email" className="modal-form__label">
           Email
           <input
             type="email"
             className="modal-form__text-input"
-            id="signin-email"
-            name="signin-email"
+            id="signup-email"
+            name="signupEmail"
             placeholder="Enter email"
             onChange={handleChange}
-            value={values.email || ""}
+            value={values.signupEmail || ""}
             required
           />
-          <span className="modal-form__error"></span>
+          <span className="modal-form__error" id="signupEmail-error">
+            {errors.signupEmail}
+          </span>
         </label>
-        <label htmlFor="signin-password" className="modal-form__label">
+        <label htmlFor="signup-password" className="modal-form__label">
           Password
           <input
             type="text"
             className="modal-form__text-input"
-            id="signin-password"
-            name="signin-password"
+            id="signup-password"
+            name="signupPassword"
             placeholder="Enter password"
             onChange={handleChange}
-            value={values.password || ""}
+            value={values.signupPassword || ""}
             required
           />
-          <span className="modal-form__error"></span>
+          <span className="modal-form__error" id="signupPassword-error">
+            {errors.signupPassword}
+          </span>
         </label>
-        <label htmlFor="signin-username" className="modal-form__label">
+        <label htmlFor="signup-username" className="modal-form__label">
           Username
           <input
             type="text"
             className="modal-form__text-input"
-            id="signin-username"
-            name="signin-username"
+            id="signup-username"
+            name="signupUsername"
             placeholder="Enter username"
             onChange={handleChange}
-            value={values.password || ""}
+            value={values.signupUsername || ""}
             required
           />
-          <span className="modal-form__error"></span>
+          <span className="modal-form__error" id="signupUsername-error">
+            {errors.signupUsername}
+          </span>
         </label>
       </fieldset>
-      <button type="submit" className="modal-form__btn">
+      <button
+        type="submit"
+        className={`modal-form__btn ${isValid && "modal-form__btn_active"}`}
+      >
         Sign up
       </button>
       <p className="modal__subtext">
