@@ -85,6 +85,8 @@ function App() {
   const [keyword, setKeyword] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoadingResults, setIsLoadingResults] = useState(false);
+  const [hadSearched, setHadSearched] = useState(false);
 
   function getOpenModalFunction(modal) {
     return () => {
@@ -98,13 +100,16 @@ function App() {
   const closeModal = getOpenModalFunction("");
 
   function onSearch({ searchTerm }) {
+    setIsLoadingResults(true);
+    setHadSearched(true);
     setKeyword(searchTerm);
     getNewsSources({ apiKey: APIkey, searchTerm: searchTerm })
       .then(({ articles }) => {
         console.log(articles);
         setNewsSources(articles);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setIsLoadingResults(false));
   }
 
   function onLogin(data) {
@@ -178,6 +183,8 @@ function App() {
               <Main
                 keyword={keyword}
                 newsSources={newsSources}
+                isLoadingResults={isLoadingResults}
+                hadSearched={hadSearched}
                 isLoggedIn={isLoggedIn}
                 openLoginModal={openLoginModal}
                 onLogOut={onLogOut}
