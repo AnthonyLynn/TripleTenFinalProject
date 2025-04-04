@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://AnthonyLynn.github.io/final_project/",
+  "homepage": "https://AnthonyLynn.github.io/TripleTenFinalProject/",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
