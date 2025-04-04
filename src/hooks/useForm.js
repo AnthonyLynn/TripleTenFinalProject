@@ -7,7 +7,7 @@ export function useForm() {
 
   const handleChange = (evt) => {
     const { value, name } = evt.target;
-    console.log(value);
+
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: evt.target.validationMessage });
     setIsValid(evt.target.closest("form").checkValidity());

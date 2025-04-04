@@ -1,17 +1,18 @@
-import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import cardImage from "../../images/TemplateCardImage.jpg";
+import { isoToMonthDayYear } from "../../utils/dateUtil";
 
 import "./NewsCard.css";
 
-function NewsCard({ newsItem, onBookMarkClick, onTrashClick, isLoggedIn }) {
-  //const { currentUser } = useContext(CurrentUserContext);
-  //const isSaved = newsItem.saves.some((id) => id === currentUser._id);
-
+function NewsCard({
+  source,
+  keyword,
+  onBookMarkClick,
+  onTrashClick,
+  isLoggedIn,
+}) {
   return (
     <li className="news-card">
       <div className="news-card__topbar">
-        <p className="news-card__keyword">Nature</p>
+        <p className="news-card__keyword">{keyword}</p>
         <div className="news-card__btn-container">
           <p className="news-card__tooltip">Sign in to save articles</p>
           {onBookMarkClick && (
@@ -31,20 +32,25 @@ function NewsCard({ newsItem, onBookMarkClick, onTrashClick, isLoggedIn }) {
           )}
         </div>
       </div>
-      <img src={cardImage} alt="" className="news-card__image" />
-      <div className="news-card__info">
-        <p className="news-card__date">November 4, 2020</p>
-        <h3 className="news-card__title">
-          Everyone Needs a Special 'Sit Spot' in Nature
-        </h3>
-        <p className="news-card__description">
-          Ever since I read Richard Louv's influential book, "Last Child in the
-          Woods," the idea of having a special "sit spot" has stuck with me.
-          This advice, which Louv attributes to nature educator Jon Young, is
-          for both adults and children to find alb0oaowjnsj nciaunwvbdlkhaw.
-        </p>
-        <p className="news-card__group">treehugger</p>
-      </div>
+      <a
+        href="https://newsapi.org/docs/endpoints/top-headlines"
+        target="_blank"
+        className="news-card__link"
+      >
+        <img
+          src={source.urlToImage}
+          alt="News Image"
+          className="news-card__image"
+        />
+        <div className="news-card__info">
+          <p className="news-card__date">
+            {isoToMonthDayYear(source.publishedAt)}
+          </p>
+          <h3 className="news-card__title">{source.title}</h3>
+          <p className="news-card__description">{source.description}</p>
+          <p className="news-card__group">{source.source.name}</p>
+        </div>
+      </a>
     </li>
   );
 }

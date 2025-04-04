@@ -8,6 +8,6 @@ export function getNewsSources({ searchTerm, apiKey }) {
   const oldDate = date.toISOString();
 
   return request(
-    `${newsApiBaseUrl}?q=${searchTerm}&from=${oldDate}&to=${currentDate}&pageSize=100&apiKey=${apiKey}`
+    `${newsApiBaseUrl}?q=${searchTerm}&from=${oldDate}&to=${currentDate}&pageSize=100&language=en&sortBy=popularity&apiKey=${apiKey}`
   );
 }

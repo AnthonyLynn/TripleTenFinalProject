@@ -1,8 +1,7 @@
 import Saved from "../Saved/Saved";
-import NewsSection from "../NewsSection/NewsSection";
 import Navigation from "../Navigation/Navigation";
 
-function SavedNews({ isLoggedIn, openLoginModal, onLogOut, newsSources }) {
+function SavedNews({ isLoggedIn, openLoginModal, onLogOut }) {
   return (
     <main className="saved-news">
       <Navigation
@@ -12,7 +11,6 @@ function SavedNews({ isLoggedIn, openLoginModal, onLogOut, newsSources }) {
         onLogOut={onLogOut}
       />
       <Saved />
-      <NewsSection newsSources={newsSources} />
     </main>
   );
 }
