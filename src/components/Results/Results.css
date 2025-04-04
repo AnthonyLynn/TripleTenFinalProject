@@ -20,12 +20,13 @@
 }
 
 .results__card-container {
-  padding: 0;
-  margin: 0 0 64px;
+  padding: 0 0 16px;
+  margin: 0 0 48px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  overflow: hidden;
 
   list-style: none;
 }
@@ -46,6 +47,10 @@
   border-radius: 999em;
 
   cursor: pointer;
+}
+
+.results__more-btn:hover {
+  background: #e8e8e8;
 }
 
 @media screen and (width <= 768px) {

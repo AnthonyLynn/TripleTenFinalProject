@@ -105,8 +105,11 @@ function App() {
     setKeyword(searchTerm);
     getNewsSources({ apiKey: APIkey, searchTerm: searchTerm })
       .then(({ articles }) => {
-        console.log(articles);
-        setNewsSources(articles);
+        setNewsSources(
+          articles.filter((source) => {
+            return source.urlToImage;
+          })
+        );
       })
       .catch(console.error)
       .finally(() => setIsLoadingResults(false));

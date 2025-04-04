@@ -32,11 +32,7 @@ function NewsCard({
           )}
         </div>
       </div>
-      <a
-        href="https://newsapi.org/docs/endpoints/top-headlines"
-        target="_blank"
-        className="news-card__link"
-      >
+      <a href={source.url} target="_blank" className="news-card__link">
         <img
           src={source.urlToImage}
           alt="News Image"
