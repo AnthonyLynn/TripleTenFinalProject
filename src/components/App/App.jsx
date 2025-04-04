@@ -25,63 +25,65 @@ function App() {
   const [currentUser, setCurrentUser] = useState({
     username: "Fox",
     email: "foxsil@fox.com",
-    keywords: ["Nature", "Yellowstone", "Margret", "Spider-Man"],
-    savedArticles: [
-      {
-        source: {
-          id: "polygon",
-          name: "Polygon",
-        },
-        author: "Matt Patches, Tasha Robinson",
-        title:
-          "Spider-Man: Brand New Day will put Tom Holland back in the Spidey suit between Avengers movies",
-        description:
-          "Tom Holland has said he’s about ready to hang up his red-and-blue spandex after 2021’s mega-successful Spider-Man: No Way Home and pass the torch to a live-action Miles Morales. But he isn’t done quite yet: Sony and Marvel Studios confirmed at the 2025 Cinema…",
-        url: "https://www.polygon.com/movies/24203068/spider-man-brand-new-day-tom-holland-release-date",
-        urlToImage:
-          "https://platform.polygon.com/wp-content/uploads/sites/2/2025/03/MCDAVIN_EC086.jpg?quality=90&strip=all&crop=0%2C0.35873569904983%2C100%2C99.2825286019&w=1200",
-        publishedAt: "2025-04-01T04:07:19Z",
-        content:
-          "Tom Holland has said he’s about ready to hang up his red-and-blue spandex after 2021’s mega-successful Spider-Man: No Way Home and pass the torch to a live-action Miles Morales. But he isn’t done qui… [+2564 chars]",
-      },
-      {
-        source: {
-          id: null,
-          name: "Digital Trends",
-        },
-        author: "Nirave Gondhia",
-        title: "Five reasons I’m excited for the new Google Pixel 9a",
-        description:
-          "Google has consistently ranked among the best smartphones for its affordable devices over the past six years, particularly with its Pixel A series. The Pixel 3a set the trend for major phone manufacturers to provide a compelling experience at half the price o…",
-        url: "https://www.digitaltrends.com/mobile/5-reasons-im-excited-for-the-pixel-9a/",
-        urlToImage:
-          "https://www.digitaltrends.com/wp-content/uploads/2025/03/pixel-9a-in-hand.jpg?resize=1200%2C630&p=1",
-        publishedAt: "2025-04-01T00:20:52Z",
-        content:
-          "Table of Contents\r\nTable of Contents\r\nA flagship processor\r\nMuch better battery life\r\nUnique and interesting colors\r\nA compelling camera without a bump\r\nOutstanding value for money\r\nGoogle has consis… [+6730 chars]",
-      },
-      {
-        source: {
-          id: null,
-          name: "heise online",
-        },
-        author: "Andreas Knobloch",
-        title:
-          "Dienstag: Flugzeuge mit Starlink-Wi-Fi, Russland baut eigene Lithografie-Systeme",
-        description:
-          "FAA-Zulassung für United Airlines + Chiptechnik aus den 1990er-Jahren + Updates für iOS, iPadOS und macOS + Geld für Lobbyarbeit + Handyverbot an Schulen",
-        url: "https://www.heise.de/news/Dienstag-Flugzeuge-mit-Starlink-Wi-Fi-Russland-baut-eigene-Lithografie-Systeme-10335096.html",
-        urlToImage:
-          "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/8/2/8/8/1/7/Wochentage-source-sans-95fdcb79b354e262.png",
-        publishedAt: "2025-04-01T04:15:00Z",
-        content:
-          "Als erste große US-Fluggesellschaft wird United Airlines an Bord seiner Maschinen schnelles Satelliteninternet von Starlink anbieten. Nun hat die US-Bundesluftfahrtbehörde FAA United die Zulassung fü… [+4182 chars]",
-      },
-    ],
     _id: "7",
   });
 
   const [newsSources, setNewsSources] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([
+    {
+      source: {
+        id: "polygon",
+        name: "Polygon",
+      },
+      keyword: "Spider-Man",
+      author: "Matt Patches, Tasha Robinson",
+      title:
+        "Spider-Man: Brand New Day will put Tom Holland back in the Spidey suit between Avengers movies",
+      description:
+        "Tom Holland has said he’s about ready to hang up his red-and-blue spandex after 2021’s mega-successful Spider-Man: No Way Home and pass the torch to a live-action Miles Morales. But he isn’t done quite yet: Sony and Marvel Studios confirmed at the 2025 Cinema…",
+      url: "https://www.polygon.com/movies/24203068/spider-man-brand-new-day-tom-holland-release-date",
+      urlToImage:
+        "https://platform.polygon.com/wp-content/uploads/sites/2/2025/03/MCDAVIN_EC086.jpg?quality=90&strip=all&crop=0%2C0.35873569904983%2C100%2C99.2825286019&w=1200",
+      publishedAt: "2025-04-01T04:07:19Z",
+      content:
+        "Tom Holland has said he’s about ready to hang up his red-and-blue spandex after 2021’s mega-successful Spider-Man: No Way Home and pass the torch to a live-action Miles Morales. But he isn’t done qui… [+2564 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Digital Trends",
+      },
+      keyword: "Google",
+      author: "Nirave Gondhia",
+      title: "Five reasons I’m excited for the new Google Pixel 9a",
+      description:
+        "Google has consistently ranked among the best smartphones for its affordable devices over the past six years, particularly with its Pixel A series. The Pixel 3a set the trend for major phone manufacturers to provide a compelling experience at half the price o…",
+      url: "https://www.digitaltrends.com/mobile/5-reasons-im-excited-for-the-pixel-9a/",
+      urlToImage:
+        "https://www.digitaltrends.com/wp-content/uploads/2025/03/pixel-9a-in-hand.jpg?resize=1200%2C630&p=1",
+      publishedAt: "2025-04-01T00:20:52Z",
+      content:
+        "Table of Contents\r\nTable of Contents\r\nA flagship processor\r\nMuch better battery life\r\nUnique and interesting colors\r\nA compelling camera without a bump\r\nOutstanding value for money\r\nGoogle has consis… [+6730 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "heise online",
+      },
+      keyword: "Germany",
+      author: "Andreas Knobloch",
+      title:
+        "Dienstag: Flugzeuge mit Starlink-Wi-Fi, Russland baut eigene Lithografie-Systeme",
+      description:
+        "FAA-Zulassung für United Airlines + Chiptechnik aus den 1990er-Jahren + Updates für iOS, iPadOS und macOS + Geld für Lobbyarbeit + Handyverbot an Schulen",
+      url: "https://www.heise.de/news/Dienstag-Flugzeuge-mit-Starlink-Wi-Fi-Russland-baut-eigene-Lithografie-Systeme-10335096.html",
+      urlToImage:
+        "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/8/2/8/8/1/7/Wochentage-source-sans-95fdcb79b354e262.png",
+      publishedAt: "2025-04-01T04:15:00Z",
+      content:
+        "Als erste große US-Fluggesellschaft wird United Airlines an Bord seiner Maschinen schnelles Satelliteninternet von Starlink anbieten. Nun hat die US-Bundesluftfahrtbehörde FAA United die Zulassung fü… [+4182 chars]",
+    },
+  ]);
   const [keyword, setKeyword] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -144,6 +146,20 @@ function App() {
     navigate("/");
   }
 
+  function onBookMark(article) {
+    const savedArticle = Object.create(article);
+    savedArticle.keyword = keyword;
+    setSavedArticles([savedArticle, ...savedArticles]);
+  }
+
+  function onTrash(source) {
+    setSavedArticles(
+      savedArticles.filter((article) => {
+        return article.title !== source.title;
+      })
+    );
+  }
+
   // Close modals on Esc key
   useEffect(() => {
     if (!activeModal) return;
@@ -184,11 +200,12 @@ function App() {
             path="/"
             element={
               <Main
-                keyword={keyword}
+                savedArticles={savedArticles}
                 newsSources={newsSources}
                 isLoadingResults={isLoadingResults}
                 hadSearched={hadSearched}
                 isLoggedIn={isLoggedIn}
+                onBookMark={onBookMark}
                 openLoginModal={openLoginModal}
                 onLogOut={onLogOut}
                 onSearch={onSearch}
@@ -200,9 +217,11 @@ function App() {
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <SavedNews
+                  savedArticles={savedArticles}
                   isLoggedIn={isLoggedIn}
                   openLoginModal={openLoginModal}
                   onLogOut={onLogOut}
+                  onTrash={onTrash}
                 />
               </ProtectedRoute>
             }

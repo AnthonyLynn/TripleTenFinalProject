@@ -1,0 +1,11 @@
+.saved-news__card-container {
+  background: #f5f6f7;
+  padding: 62px 106px;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  list-style: none;
+}

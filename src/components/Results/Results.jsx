@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 
 import "./Results.css";
 
-function Results({ newsSources, keyword }) {
+function Results({ newsSources, onBookMark, isLoggedIn, savedArticles }) {
   const [newsShown, setNewsShown] = useState(3);
   const [canShowMore, setCanShowMore] = useState(true);
 
@@ -27,7 +27,15 @@ function Results({ newsSources, keyword }) {
       <h2 className="results__header">Search results</h2>
       <ul className="results__card-container">
         {newsSources.slice(0, newsShown).map((source) => {
-          return <NewsCard key={uuidv4()} keyword={keyword} source={source} />;
+          return (
+            <NewsCard
+              savedArticles={savedArticles}
+              key={uuidv4()}
+              onBookMark={onBookMark}
+              source={source}
+              isLoggedIn={isLoggedIn}
+            />
+          );
         })}
       </ul>
       {canShowMore && (

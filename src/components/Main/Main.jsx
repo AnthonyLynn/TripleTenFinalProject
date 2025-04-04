@@ -9,10 +9,11 @@ function Main({
   isLoggedIn,
   openLoginModal,
   onLogOut,
-  keyword,
   isLoadingResults,
   hadSearched,
+  onBookMark,
   newsSources,
+  savedArticles,
   onSearch,
 }) {
   return (
@@ -27,7 +28,12 @@ function Main({
       {isLoadingResults ? (
         <Preloader />
       ) : newsSources.length > 0 ? (
-        <Results keyword={keyword} newsSources={newsSources} />
+        <Results
+          savedArticles={savedArticles}
+          onBookMark={onBookMark}
+          newsSources={newsSources}
+          isLoggedIn={isLoggedIn}
+        />
       ) : (
         hadSearched && <NothingFound />
       )}

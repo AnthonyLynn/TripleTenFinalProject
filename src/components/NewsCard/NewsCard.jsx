@@ -1,34 +1,68 @@
+import { useState, useEffect } from "react";
 import { isoToMonthDayYear } from "../../utils/dateUtil";
 
 import "./NewsCard.css";
 
-function NewsCard({
-  source,
-  keyword,
-  onBookMarkClick,
-  onTrashClick,
-  isLoggedIn,
-}) {
+function NewsCard({ source, onBookMark, onTrash, isLoggedIn, savedArticles }) {
+  const [tooltipActive, setTooltipActive] = useState(false);
+
+  const isSaved = savedArticles.find((element) => {
+    return element.title === source.title;
+  });
+
+  function onBookMarkClick() {
+    if (isSaved || !isLoggedIn) return;
+    onBookMark(source);
+  }
+
+  function onTrashClick() {
+    onTrash(source);
+  }
+
+  function onIconHover() {
+    if (isLoggedIn && onBookMark) return;
+    setTooltipActive(true);
+  }
+
+  function onIconLeave() {
+    setTooltipActive(false);
+  }
+
   return (
     <li className="news-card">
       <div className="news-card__topbar">
-        <p className="news-card__keyword">{keyword}</p>
+        {source.keyword && (
+          <p className="news-card__keyword">{source.keyword}</p>
+        )}
         <div className="news-card__btn-container">
-          <p className="news-card__tooltip">Sign in to save articles</p>
-          {onBookMarkClick && (
+          <p
+            className={`news-card__tooltip ${
+              tooltipActive && "news-card__tooltip_active"
+            }`}
+          >
+            {onBookMark ? "Sign in to save articles" : "Remove from saved"}
+          </p>
+          {onBookMark && (
             <button
               className={`news-card__btn 
                 ${
-                  isSaved
+                  isSaved && isLoggedIn
                     ? "news-card__btn_type_bookmark-highlighted"
                     : "news-card__btn_type_bookmark"
                 }
               `}
-              onClick={isLoggedIn && onBookMarkClick}
+              onClick={onBookMarkClick}
+              onMouseEnter={onIconHover}
+              onMouseLeave={onIconLeave}
             />
           )}
-          {onTrashClick && (
-            <button className="news-card__btn news-card__btn_type_trashcan" />
+          {onTrash && (
+            <button
+              className="news-card__btn news-card__btn_type_trashcan"
+              onClick={onTrashClick}
+              onMouseEnter={onIconHover}
+              onMouseLeave={onIconLeave}
+            />
           )}
         </div>
       </div>
