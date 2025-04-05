@@ -1,4 +1,4 @@
-/* font-family: Roboto, Arial, "Helvetica Neue", Lato; */
+/* font-family: Roboto, Arial, "Helvetica Neue", Lato, serif; */
 
 @font-face {
   font-family: Roboto;
@@ -50,7 +50,7 @@
     url(../fonts/RobotoSlab/roboto-slab-700.woff2) format("woff2");
 }
 
-/* font-family: Inter, Helvetica, Arial; */
+/* font-family: Inter, Helvetica, Arial, sans-serif; */
 
 @font-face {
   font-family: Inter;

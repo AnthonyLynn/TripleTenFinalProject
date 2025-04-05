@@ -4,7 +4,7 @@
 }
 
 .saved__nametag {
-  font-family: Roboto, Arial, "Helvetica Neue", Lato;
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.333;
@@ -24,7 +24,7 @@
 }
 
 .saved__keywords {
-  font-family: Roboto, Arial, "Helvetica Neue", Lato;
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.333;

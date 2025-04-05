@@ -55,7 +55,7 @@
 }
 
 .modal__header {
-  font-family: Roboto, Arial, "Helvetica Neue", Lato;
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 1;
@@ -66,7 +66,7 @@
 }
 
 .modal__subtext {
-  font-family: Inter, Helvetica, Arial;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
@@ -76,7 +76,7 @@
 }
 
 .modal__link {
-  font-family: Inter, Helvetica, Arial;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1;

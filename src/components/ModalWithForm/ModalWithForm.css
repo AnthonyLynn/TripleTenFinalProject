@@ -19,7 +19,7 @@
 }
 
 .modal-form__label {
-  font-family: Inter, Helvetica, Arial;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1;
@@ -34,7 +34,7 @@
 }
 
 .modal-form__text-input {
-  font-family: Inter, Helvetica, Arial;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1;
@@ -48,7 +48,7 @@
 }
 
 .modal-form__error {
-  font-family: Inter, Helvetica, Arial;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1;
@@ -58,7 +58,7 @@
 }
 
 .modal-form__btn {
-  font-family: Roboto, Arial, "Helvetica Neue", Lato;
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.333;
