@@ -95,3 +95,16 @@
 .modal__confrimation {
   padding: 43px 36px 52px;
 }
+
+@media screen and (width <= 425px) {
+  .modal {
+    background-color: rgba(0, 0, 0, 0);
+    align-items: flex-end;
+  }
+
+  .modal__content {
+    height: calc(100% - 56px);
+
+    border-radius: 16px 16px 0 0;
+  }
+}
