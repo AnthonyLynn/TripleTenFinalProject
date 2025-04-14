@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { isoToMonthDayYear } from "../../utils/dateUtil";
 
 import "./NewsCard.css";
