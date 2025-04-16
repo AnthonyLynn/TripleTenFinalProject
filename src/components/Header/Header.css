@@ -1,0 +1,84 @@
+.header {
+  width: 100%;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/Background_Placeholder.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+
+  padding: 160px 0 80px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__title {
+  font-family: "Roboto Slab", "Times New Roman", sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 1.066;
+  color: #ffffff;
+
+  width: 608px;
+
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+.header__instructions {
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.333;
+  color: #ffffff;
+
+  width: 608px;
+
+  margin: 0 0 88px;
+  padding: 0;
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    padding: 104px 0 48px;
+  }
+
+  .header__title {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.111;
+
+    width: 452px;
+    margin: 0 0 16px;
+  }
+
+  .header__instructions {
+    width: 452px;
+    margin: 0 0 48px;
+  }
+}
+
+@media screen and (width <= 640px) {
+  .header {
+    padding: 86px 40px 32px;
+  }
+
+  .header__title {
+    width: 100%;
+  }
+
+  .header__instructions {
+    width: 100%;
+    margin: 0 0 122px;
+  }
+}
+
+@media screen and (width <= 425px) {
+  .header {
+    padding: 86px 18px 32px;
+  }
+}

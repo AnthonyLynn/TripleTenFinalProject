@@ -1,0 +1,38 @@
+.nothing-found {
+  padding: 86px 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f6f7;
+}
+
+.nothing-found__image {
+  width: 82.5px;
+  aspect-ratio: 1;
+
+  margin: 0 0 31.5px;
+}
+
+.nothing-found__header {
+  font-family: "Roboto Slab", "Times New Roman", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.154;
+  color: #1a1b22;
+  text-align: center;
+
+  width: 250px;
+  margin: 0 0 16px;
+}
+
+.nothing-found__description {
+  font-family: Roboto, Arial, "Helvetica Neue", Lato, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.333;
+  color: #b6bcbf;
+  text-align: center;
+
+  width: 250px;
+  margin: 0;
+}
